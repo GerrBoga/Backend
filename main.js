@@ -11,7 +11,6 @@ class ProductManager{
             if (this.products.some(producto => producto.codigo === codigo)) {
 
                 console.log(`Este código: ${codigo}, ya existe.`)
-                console.log( products )
           
             }
         }
@@ -25,9 +24,14 @@ class ProductManager{
             codigo,
             stock,
         }
+
+        
+
         if(!Object.values(newProduct).includes(undefined)){
             ProductManager.id++
-            this.products.push({...newProduct, id:ProductManager.id})
+            this.products.push({
+            ...newProduct,
+            id:ProductManager.id})
         } else {
             console.log("Todos los campos son necesarioss")
         }
@@ -54,11 +58,15 @@ const productos = new ProductManager
 
 console.log(productos.getProduct())
 
+//producto
 productos.addProduct( 'Manzana', 'Deliciosa', 1500, "imagencualquiera", "M1", 10 )
-productos.addProduct( 'Pera', 'mediana', 100, "imagencualquiera", "P1", 10 )
+
+//validacion de datos
+productos.addProduct( 'Pera', 'mediana', 100, "imagencualquiera", "P1",  )
 
 console.log(productos.getProduct())
 
+//producto con codigo repetido
 productos.addProduct( 'Banana', 'Grande', 2000, "imagencualquiera", "M1", 20 )
 
 
