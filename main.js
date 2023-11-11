@@ -49,7 +49,8 @@ class ProductManager{
     }
 
     getProductById(id){
-    !this.esta(id) ? console.log("No se encontro") : console.log(this.esta(id));
+        !this.esta(id) ? console.log("No se encontro") : console.log(this.esta(id));
+        return this.products.find((producto)=> producto.id === id);
     }
     
 }
@@ -70,5 +71,4 @@ console.log(productos.getProduct())
 productos.addProduct( 'Banana', 'Grande', 2000, "imagencualquiera", "M1", 20 )
 
 
-
-//productos.getProductById(2)
+productos.getProductById(1)
