@@ -1,5 +1,5 @@
 async function testProductManager() {
-    const ProductManager = require("./productManager");
+    const ProductManager = require("./managers/productManager");
   
     // Nueva clase
     const productManager = new ProductManager("./src/testProducts.json");
