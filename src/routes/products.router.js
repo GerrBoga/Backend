@@ -1,12 +1,11 @@
-const { Router } = require('express');
-const ProductManager = require('../managers/productManager.js');
-const productManager = new ProductManager('./src/data/products.json');
+import { Router } from 'express';
+import productManager from '../managers/productManager';
+const productManager = new ProductManager('./productos.json');
 const router = Router();
 
 router
     .get('/', async (req, res) => {
-        try {
-            await productManager.readFromFile();
+        try {            
             const limit = parseInt(req.query.limit);
             const allProducts = await productManager.getProducts();
 
@@ -18,16 +17,14 @@ router
             }
         } catch (error) {
             console.error(error);
-            res.status(500).send('Error del servidor');
+            res.status(500).send('Error interno del servidor');
         }
     })
 
     .get('/:pid', async (req, res) => {
         const id = parseInt(req.params.pid);
-        try {
-            await productManager.readFromFile();
+        try {            
             const producto = productManager.getProductById(id);
-
             if (producto) {
                 res.json(producto);
             } else {
@@ -35,20 +32,18 @@ router
             }
         } catch (error) {
             console.error(error);
-            res.status(500).send('Error del servidor');
+            res.status(500).send('Error interno del servidor');
         }
     })
 
     .put('/:id', (req, res) => {
         const productId = parseInt(req.params.id);
 
-        // Validar si el id está presente y es válido
+        // Validar si el id está presente y es un número válido
         if (isNaN(productId)) {
             return res.status(400).json({ error: 'ID no válido.' });
         }
-
         const updatedProductData = req.body;
-
         productManager.updateProduct(productId, updatedProductData);
         res.json({ message: `Producto con ID ${productId} actualizado con éxito.` });
     })
@@ -58,7 +53,7 @@ router
         if (isNaN(productId)) {
             return res.status(400).json({ error: 'ID no válido.' });
         }
-        //devolvemos respuesta desde el metodo del deletePorduct ProductManager 
+        //devolvemos respuesta  desde el metodo del deletePorduct ProductManager 
         res.json(productManager.deleteProduct(productId));
 
     })
@@ -73,6 +68,4 @@ router
     })
 
 
-
-
-module.exports = router;
+export default router;

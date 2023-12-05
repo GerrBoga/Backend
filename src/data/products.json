@@ -1,0 +1,57 @@
+[
+  {
+    "id": 2009,
+    "title": "1",
+    "description": "1",
+    "code": "1",
+    "price": "1",
+    "status": "available",
+    "stock": "1",
+    "category": "1",
+    "thumbnail": "1"
+  },
+  {
+    "id": 2020,
+    "title": "2",
+    "description": "2",
+    "code": "2",
+    "price": "2",
+    "status": "available",
+    "stock": "2",
+    "category": "2",
+    "thumbnail": "2"
+  },
+  {
+    "id": 2025,
+    "title": "3",
+    "description": "3",
+    "code": "3",
+    "price": "3",
+    "status": "available",
+    "stock": "3",
+    "category": "3",
+    "thumbnail": "3"
+  },
+  {
+    "id": 2010,
+    "title": "4",
+    "description": "4",
+    "code": "4",
+    "price": "4",
+    "status": "available",
+    "stock": "4",
+    "category": "4",
+    "thumbnail": "4"
+  },
+  {
+    "id": 2003,
+    "title": "5",
+    "description": "5",
+    "code": "5",
+    "price": "5",
+    "status": "available",
+    "stock": "5",
+    "category": "5",
+    "thumbnail": "5"
+  }
+]
